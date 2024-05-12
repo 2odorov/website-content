@@ -20,23 +20,26 @@
         </nav>
         <section>
             <p>This is the landing page for Project A. Here, you can find details about the project's goals, progress, and results.</p>
-            
-            <py-env>
-                - numpy
-            </py-env>
-            
             <article>
                 <h2>Interactive Python Example</h2>
                 <p>Below is an example of Python code running in your browser using PyScript:</p>
                 <py-script>
-                    import numpy as np
-                    def calculate():
-                        array = np.array([1, 2, 3, 4, 5])
-                        mean = np.mean(array)
-                        return f"The mean of the array is {mean}"
-                    
-                    result = calculate()
-                    result
+                    import asyncio
+                    import micropip
+
+                    async def main():
+                        await micropip.install("numpy")
+                        import numpy as np
+
+                        def calculate():
+                            array = np.array([1, 2, 3, 4, 5])
+                            mean = np.mean(array)
+                            return f"The mean of the array is {mean}"
+
+                        result = calculate()
+                        return result
+
+                    asyncio.ensure_future(main())
                 </py-script>
             </article>
         </section>
