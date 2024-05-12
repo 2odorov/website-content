@@ -6,7 +6,7 @@
     <title>Project A</title>
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <script type="module" src="https://pyscript.net/latest/pyscript.js"></script>
 </head>
 <body>
     <div class="container">
@@ -22,13 +22,11 @@
             <p>This is the landing page for Project A. Here, you can find details about the project's goals, progress, and results.</p>
             <article>
                 <h2>Interactive Python Example</h2>
-                <p>Below is an example of Python code running in your browser using PyScript:</p>
-                <!-- Fetching Python script from GitHub -->
-                <py-script src="https://raw.githubusercontent.com/2odorov/website-content/main/Projects/ProjectA/script.py">
-                    from script import greet
-                    output = greet("World")
-                    print(output)
-                </py-script>
+   		<p>Translate English into Pirate speak...</p>
+    		<input type="text" id="english" placeholder="Type English here..." />
+    		<button py-click="translate_english">Translate</button>
+    		<div id="output"></div>
+    		<script type="py" src="./main.py" config="./pyscript.json"></script>
             </article>
         </section>
         <footer>
