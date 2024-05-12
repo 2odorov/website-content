@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project A</title>
     <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
 </head>
 <body>
     <div class="container">
@@ -19,8 +20,25 @@
         </nav>
         <section>
             <p>This is the landing page for Project A. Here, you can find details about the project's goals, progress, and results.</p>
-		<a href="https://mybinder.org/v2/gh/2odorov/website-content/main?labpath=Projects%2FProjectA%2Ftest.ipynb" target="_blank">Launch Interactive Project A</a>
-
+            
+            <py-env>
+                - numpy
+            </py-env>
+            
+            <article>
+                <h2>Interactive Python Example</h2>
+                <p>Below is an example of Python code running in your browser using PyScript:</p>
+                <py-script>
+                    import numpy as np
+                    def calculate():
+                        array = np.array([1, 2, 3, 4, 5])
+                        mean = np.mean(array)
+                        return f"The mean of the array is {mean}"
+                    
+                    result = calculate()
+                    result
+                </py-script>
+            </article>
         </section>
         <footer>
             <p>Copyright © Your Name 2023</p>
