@@ -23,23 +23,10 @@
             <article>
                 <h2>Interactive Python Example</h2>
                 <p>Below is an example of Python code running in your browser using PyScript:</p>
-                <py-script>
-                    import asyncio
-                    import micropip
-
-                    async def main():
-                        await micropip.install("numpy")
-                        import numpy as np
-
-                        def calculate():
-                            array = np.array([1, 2, 3, 4, 5])
-                            mean = np.mean(array)
-                            return f"The mean of the array is {mean}"
-
-                        result = calculate()
-                        return result
-
-                    asyncio.ensure_future(main())
+                <py-script src="script.py">
+                    from script import greet
+                    output = greet("World")
+                    print(output)
                 </py-script>
             </article>
         </section>
