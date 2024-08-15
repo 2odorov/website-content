@@ -1,0 +1,447 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1E1E1E; /* Background color */
+    color: #eaeaea;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 14px; /* Smaller text to match Excel style */
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    margin-left: 90px; /* Offset for sidebar */
+}
+
+.sidebar {
+    background-color: #282828; /* Sidebar color */
+    width: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    position: fixed; /* Fixed position */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100; /* Ensure it stays above content */
+}
+
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.profile-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #a51c30;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.menu {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+.menu-item img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 5px;
+}
+
+.menu-item span {
+    font-size: 12px;
+    color: #b4b4b4;
+}
+
+.menu-item.active, .menu-item:hover span {
+    color: white;
+}
+
+.main-content {
+    flex-grow: 1;
+    background-color: #1E1E1E; /* Background color */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.search-bar {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #3e3e40;
+    color: white;
+    width: calc(100% - 180px); /* Full width minus 2x the sidebar width */
+    margin: 0 auto 20px; /* Center it horizontally */
+}
+
+.templates {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.template-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    cursor: pointer;
+}
+
+.white-square {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.template-card.selected .white-square {
+    border: 3px solid #b3b3b3;
+}
+
+.more-templates {
+    display: block;
+    margin-top: 10px;
+    color: #44aaff;
+    text-decoration: none;
+}
+
+.more-projects {
+    display: inline; /* Makes only the text clickable */
+    color: #44aaff; /* Match the Recents header color */
+    text-decoration: none;
+}
+
+.more-projects:hover {
+    text-decoration: underline;
+}
+
+.recent-files {
+    background-color: #1E1E1E; /* Match background color */
+    border-radius: 10px;
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab {
+    margin-right: 20px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    color: #b4b4b4;
+    border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+    color: white;
+    border-bottom: 2px solid #44aaff;
+}
+
+.file-table {
+    width: 100%; /* Full width */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 12px; /* Smaller text for Excel style */
+}
+
+.file-table th, .file-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+}
+
+.file-table th {
+    background-color: #282828; /* Match sidebar color */
+    color: #b4b4b4;
+    font-weight: normal;
+}
+
+.file-table td {
+    background-color: #2A2A2A; /* Darker row color */
+    color: #eaeaea;
+    vertical-align: top;
+}
+
+.file-table tr:nth-child(odd) td {
+    background-color: #323232; /* Lighter row color */
+}
+
+.file-table tr:hover td {
+    background-color: #3A3A3A; /* Hover/Highlight color */
+}
+
+.file-details img {
+    width: 12px !important; /* Enforced smaller icon size */
+    height: 12px !important; /* Enforced smaller icon size */
+    margin-right: 5px !important; /* Reduced margin */
+}
+
+.file-name {
+    font-weight: bold;
+    display: block;
+}
+
+.file-path {
+    font-size: 11px;
+    color: #b4b4b4;
+    display: block;
+}
+
+.file-date {
+    font-size: 12px;
+    color: #b4b4b4;
+    white-space: nowrap; /* Prevent line break */
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed; /* Fixed to bottom right */
+    right: 20px;
+    bottom: 20px;
+}
+
+.help-button {
+    padding: 10px 20px;
+    background-color: #3e3e40;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.help-button:hover {
+    background-color: #575759;
+}
+
+.user-popup {
+    background-color: #2A2A2A;
+    color: #eaeaea;
+    position: absolute;
+    top: 20px; /* Adjust this value based on where you want it vertically */
+    left: calc(90px + 10px); /* Adjust to fit sidebar */
+    width: 300px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* Initially hidden */
+    z-index: 1000;
+}
+
+.user-popup h1,
+.user-popup p,
+.user-popup span,
+.user-popup button,
+.user-popup a {
+    color: #eaeaea !important; /* Override any potential conflicting styles */
+}
+
+.user-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.user-info {
+    margin-left: 10px;
+}
+
+.user-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.user-email {
+    font-size: 14px;
+    color: #b4b4b4;
+}
+
+.connected-services {
+    margin-bottom: 15px;
+}
+
+.services-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.service-item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.sign-out {
+    text-align: center;
+}
+
+#sign-out-btn {
+    background-color: #a51c30;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#sign-out-btn:hover {
+    background-color: #c82642;
+}
+
+/* Spreadsheet container layout */
+.spreadsheet-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f4f4f4;
+    position: relative; /* Ensure document overlay positions correctly */
+    width: 100%; /* Full width of the page */
+}
+
+/* Toolbar styling (from the old code) */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333; /* Dark toolbar background */
+    color: white; /* White text for the toolbar */
+    padding: 10px;
+    font-size: 14px;
+    align-items: center;
+}
+
+/* Centered section of the toolbar */
+.toolbar-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Sections within the toolbar */
+.toolbar-section {
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0 10px; /* Added space between Home and View */
+}
+
+/* Toolbar divider */
+.toolbar-divider {
+    color: white;
+}
+
+/* Toolbar action buttons */
+.toolbar-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Buttons inside the toolbar */
+.toolbar-button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.toolbar-button:hover {
+    background-color: #666; /* Lighter hover effect */
+}
+
+/* Grid container for the spreadsheet */
+.spreadsheet-grid {
+    flex-grow: 1;
+    overflow: auto;
+    background-color: #ffffff; /* Light background for the grid */
+}
+
+/* Spreadsheet table layout */
+.spreadsheet-table {
+    width: 100%; /* Full width */
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.spreadsheet-table th,
+.spreadsheet-table td {
+    border: 1px solid #ccc; /* Light border for grid cells */
+    padding: 5px;
+    text-align: left;
+    height: 20px; /* Consistent row height */
+}
+
+.spreadsheet-table th {
+    background-color: #f0f0f0;
+    font-weight: normal; /* Regular font weight for headers */
+}
+
+/* Corner cell styling */
+.corner {
+    background-color: #ddd; /* Light grey for the top-left corner */
+    width: 30px;
+}
+
+/* Document overlay for content */
+.white-document-overlay {
+    position: absolute;
+    top: 120px;
+    left: 10%;
+    width: 80%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    transition: box-shadow 0.3s ease, width 0.3s ease;
+}
+
+/* Text color for headings and paragraphs in the document */
+h1, p {
+    color: black; /* Dark text for the content overlay */
+}
