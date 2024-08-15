@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew Todorov Personal Website</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="user-profile" onclick="toggleProfilePopup()">
+                <div class="profile-circle">TM</div>
+                <div>Matthew</div>
+            </div>
+            <nav class="menu">
+                <div class="menu-item" onclick="location.href='index.html'">
+                    <img src="images/home-icon.png" alt="Home Icon">
+                    <span>Home</span>
+                </div>
+                <div class="menu-item" onclick="location.href='recent.html'">
+                    <img src="images/recent-icon.png" alt="Recent Icon">
+                    <span>Recent</span>
+                </div>
+                <div class="menu-item" onclick="location.href='contact.html'">
+                    <img src="images/contact-icon.png" alt="Contact Icon">
+                    <span>Contact</span>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Search bar stretched across width -->
+            <input type="text" placeholder="Search" class="search-bar">
+
+            <!-- Template section -->
+            <section class="templates">
+                <div class="template-card" onclick="location.href='projectA.html'">
+                    <div class="square white-square"></div>
+                    <span>Project A</span>
+                </div>
+                <div class="template-card" onclick="location.href='projectB.html'">
+                    <div class="square white-square"></div>
+                    <span>Project B</span>
+                </div>
+                <div class="template-card" onclick="location.href='projectC.html'">
+                    <div class="square white-square"></div>
+                    <span>Project C</span>
+                </div>
+
+                <div class="more-projects-wrapper">
+                    <a href="more-projects.html" class="more-projects">More projects</a>
+                </div>
+            </section>
+
+            <!-- Recent files section with full-width table -->
+            <section class="recent-files">
+                <div class="tabs">
+                    <span class="tab active">Recent</span>
+                </div>
+
+                <table class="file-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Name</th>
+                            <th>Last edited</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="file-item">
+                            <td><img src="excel-icon.png" alt="Excel"></td>
+                            <td>
+                                <span class="file-name">institutional_sales_exercise_solved</span><br>
+                                <span class="file-path">Macintosh HD > Users > laptop > Documents > F524 > Other > Unspecified > Temporary</span>
+                            </td>
+                            <td class="file-date">8 Jul</td>
+                        </tr>
+                        <!-- Add more file rows as needed -->
+                    </tbody>
+                </table>
+                <a href="more-projects.html" class="more-projects">More projects</a>
+            </section>
+        </main>
+    </div>
+
+    <!-- Help button fixed to bottom right -->
+    <footer class="footer">
+        <button class="help-button" onclick="location.href='help.html'">Help</button>
+    </footer>
+
+    <!-- Profile Pop-out -->
+    <div class="user-popup" id="user-popup">
+        <div class="user-header">
+            <div class="profile-circle">TM</div>
+            <div class="user-info">
+                <p class="user-name">Todorov, Matthew</p>
+                <p class="user-email">matthewtodorov03@gmail.com</p>
+            </div>
+        </div>
+        <div class="connected-services">
+            <p class="services-title">Connected Services</p>
+            <div class="service-item">
+                <img src="icons/onedrive-icon.png" alt="LinkedIn Icon">
+                <span>LinkedIn</span>
+            </div>
+            <div class="service-item">
+                <img src="icons/sharepoint-icon.png" alt="Mail Icon">
+                <span>Mail</span>
+            </div>
+        </div>
+        <div class="sign-out">
+            <button id="sign-out-btn">Sign Out</button>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script>
+        // JavaScript to toggle the visibility of the profile pop-up
+        function toggleProfilePopup() {
+            const popup = document.getElementById('user-popup');
+            if (popup.style.display === 'block') {
+                popup.style.display = 'none';
+            } else {
+                popup.style.display = 'block';
+            }
+        }
+
+        // Hide the popup if user clicks outside
+        document.addEventListener('click', function (event) {
+            const popup = document.getElementById('user-popup');
+            const profile = document.querySelector('.user-profile');
+
+            if (!popup.contains(event.target) && !profile.contains(event.target)) {
+                popup.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

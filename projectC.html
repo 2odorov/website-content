@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1e1e1e">
+    <title>Project C - Spreadsheet Style</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Ensuring the overlay aesthetics for the document */
+        .white-document-overlay {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 100px; /* Distance from top */
+            left: 50px; /* Distance from left */
+            right: 50px; /* Distance from right */
+            z-index: 2; /* Overlay on top of grid */
+        }
+    </style>
+</head>
+<body>
+    <div class="spreadsheet-container">
+        <!-- Top Ribbon Toolbar -->
+        <div class="toolbar">
+            <div class="toolbar-center">
+                <div class="toolbar-section" onclick="location.href='index.html'">Home</div>
+                <div class="toolbar-divider">|</div> <!-- Vertical Divider -->
+                <div class="toolbar-section view-button" onclick="toggleViewMode()">View</div>
+            </div>
+            <!-- Comments and Share buttons -->
+            <div class="toolbar-actions">
+                <button class="toolbar-button comments-button">Comments</button>
+                <button class="toolbar-button share-button">Share</button>
+            </div>
+        </div>
+
+        <!-- Spreadsheet Grid Background -->
+        <div class="spreadsheet-grid" id="grid-background" style="display: block;">
+            <table class="spreadsheet-table">
+                <thead>
+                    <tr>
+                        <th class="corner"></th>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                        <th>E</th>
+                        <th>F</th>
+                        <th>G</th>
+                        <th>H</th>
+                        <th>I</th>
+                        <th>J</th>
+                        <th>K</th>
+                        <th>L</th>
+                    </tr>
+                </thead>
+                <tbody id="grid-body">
+                    <!-- Rows of the spreadsheet grid (to be dynamically generated) -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- White document overlay for project content -->
+        <div class="white-document-overlay" id="document-overlay">
+            <h1>Project C Write-up</h1>
+            <p>This is the project write-up. The view can toggle between a grid style with an overlay aesthetic and a plain document style.</p>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Function to toggle between gridlines and plain document view
+        function toggleViewMode() {
+            const gridBackground = document.getElementById('grid-background');
+            const bodyElement = document.body;
+
+            // Check current state and toggle
+            if (gridBackground.style.display === 'none') {
+                // Switch to grid view with overlay aesthetic
+                gridBackground.style.display = 'block'; // Show gridlines
+                bodyElement.style.backgroundColor = '#f4f4f4'; // Default background for grid view
+            } else {
+                // Switch to plain view with the document
+                gridBackground.style.display = 'none'; // Hide gridlines
+                bodyElement.style.backgroundColor = '#ffffff'; // Plain white background
+            }
+        }
+
+        // Function to dynamically fill grid with enough rows
+        function generateGridRows() {
+            const gridBody = document.getElementById('grid-body');
+            gridBody.innerHTML = ''; // Clear existing rows
+
+            const rowHeight = 20; // Approximate row height in pixels
+            const numRows = Math.floor(window.innerHeight / rowHeight) - 4; // Adjust based on viewport height
+
+            for (let i = 1; i <= numRows; i++) {
+                const row = document.createElement('tr');
+                const rowNumber = document.createElement('td');
+                rowNumber.innerText = i;
+                row.appendChild(rowNumber);
+
+                // Create empty cells for each row
+                for (let j = 0; j < 12; j++) {
+                    const cell = document.createElement('td');
+                    row.appendChild(cell);
+                }
+
+                gridBody.appendChild(row);
+            }
+        }
+
+        // Generate grid rows on page load
+        window.onload = generateGridRows;
+
+        // Regenerate grid rows on window resize
+        window.onresize = generateGridRows;
+    </script>
+</body>
+</html>
