@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="user-profile" onclick="toggleProfilePopup()">
+                <div class="profile-circle">TM</div>
+                <div>Matthew</div>
+            </div>
+            <nav class="menu">
+                <div class="menu-item" onclick="location.href='index.html'">
+                    <img src="images/home-icon.png" alt="Home Icon">
+                    <span>Home</span>
+                </div>
+                <div class="menu-item" onclick="location.href='recent.html'">
+                    <img src="images/recent-icon.png" alt="Recent Icon">
+                    <span>Recent</span>
+                </div>
+                <div class="menu-item" onclick="location.href='contact.html'">
+                    <img src="images/contact-icon.png" alt="Contact Icon">
+                    <span>Contact</span>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <!-- Empty content for plain page -->
+        </main>
+    
+        <!-- Profile Pop-out -->
+        <div class="user-popup" id="user-popup">
+            <div class="user-header">
+                <div class="profile-circle">TM</div>
+                <div class="user-info">
+                    <p class="user-name">Todorov, Matthew</p>
+                    <p class="user-email">matthewtodorov03@gmail.com</p>
+                </div>
+            </div>
+            <div class="connected-services">
+                <p class="services-title">Connected Services</p>
+                <div class="service-item">
+                    <img src="icons/onedrive-icon.png" alt="LinkedIn Icon">
+                    <span>LinkedIn</span>
+                </div>
+                <div class="service-item">
+                    <img src="icons/sharepoint-icon.png" alt="Mail Icon">
+                    <span>Mail</span>
+                </div>
+            </div>
+            <div class="sign-out">
+                <button id="sign-out-btn">Sign Out</button>
+            </div>
+        </div>
+        <script src="script.js"></script>
+        <script>
+            // JavaScript to toggle the visibility of the profile pop-up
+            function toggleProfilePopup() {
+                const popup = document.getElementById('user-popup');
+                if (popup.style.display === 'block') {
+                    popup.style.display = 'none';
+                } else {
+                    popup.style.display = 'block';
+                }
+            }
+
+            // Hide the popup if user clicks outside
+            document.addEventListener('click', function (event) {
+                const popup = document.getElementById('user-popup');
+                const profile = document.querySelector('.user-profile');
+
+                if (!popup.contains(event.target) && !profile.contains(event.target)) {
+                    popup.style.display = 'none';
+                }
+            });
+        </script>
+
+</body>    
+</html>
