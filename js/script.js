@@ -27,3 +27,6 @@ document.querySelectorAll('.template-card').forEach(function(card) {
         }
     });
 });
+
+
+
