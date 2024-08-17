@@ -33,7 +33,7 @@
         <!-- Main Content -->
         <main class="main-content">
             <!-- Search bar stretched across width -->
-            <input type="text" placeholder="Search" class="search-bar">
+            <form id="searchForm"action="https://www.google.com/search"method="get"target="_blank"><input type="text" placeholder="Search (the internet)..." name="q" class="search-bar" required></form>
 
             <!-- Template section -->
             <section class="templates">
@@ -70,10 +70,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="file-item">
+                        <tr class="file-item" onclick="location.href='projectA.html'" style="cursor: pointer;">
                             <td><img src="excel-icon.png" alt="Excel"></td>
                             <td>
-                                <span class="file-name">institutional_sales_exercise_solved</span><br>
+                                <span class="file-name">Project A</span><br>
                                 <span class="file-path">Macintosh HD > Users > laptop > Documents > F524 > Other > Unspecified > Temporary</span>
                             </td>
                             <td class="file-date">8 Jul</td>
@@ -103,18 +103,24 @@
         <div class="connected-services">
             <p class="services-title">Connected Services</p>
             <div class="service-item">
-                <img src="icons/onedrive-icon.png" alt="LinkedIn Icon">
+                <img src="images/linkedin-icon.png" alt="LinkedIn Icon">
+		<a href="https://www.linkedin.com/in/matthew-todorov-3560921bb/" target="_blank">
                 <span>LinkedIn</span>
+	    </a>
             </div>
             <div class="service-item">
-                <img src="icons/sharepoint-icon.png" alt="Mail Icon">
+                <img src="images/mail-icon.png" alt="Mail Icon">
+		<a href="mailto:matthewtodorov03@gmail.com">
                 <span>Mail</span>
+	    </a>
             </div>
         </div>
+
         <div class="sign-out">
             <button id="sign-out-btn">Sign Out</button>
         </div>
     </div>
+
 
     <script src="scripts.js"></script>
     <script>

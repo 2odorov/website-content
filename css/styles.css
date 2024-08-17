@@ -100,9 +100,9 @@ body {
     border: none;
     background-color: #3e3e40;
     color: white;
-    width: calc(100% - 180px); /* Full width minus 2x the sidebar width */
-    margin: 0 auto 20px; /* Center it horizontally */
+    width: calc(100% - 180px); /* Subtract both left and right space */margin-left: 90px; /* Offset to align with the sidebar */margin-right: 90px; /* Same space on the right as left */margin-bottom: 20px; /* Bottom margin for spacing */
 }
+
 
 .templates {
     display: flex;
